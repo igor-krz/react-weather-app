@@ -18,14 +18,22 @@ class Weather extends Component {
         const query=this.props.city;
         const url=apiUrl+query+apiKey;
         fetch(url)
-        .then(res => res.json())
+        .then((res) =>{ 
+            if(res.ok){
+            return res.json()}
+            else{
+                throw new Error('Please input the name of city/country again!')
+            }
+        })
         .then((result) => {
             this.setState({
                 data: result,
                 isLoaded: true,
                 city: query
             });
-        })
+        }).catch((error) => {
+            console.log(error)
+          });
     };
 
     
