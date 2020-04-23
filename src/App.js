@@ -7,20 +7,39 @@ import Homepage from './Homepage.js';
 import Location from './Location.js'
 
 class App extends Component {
+  constructor(){
+    super();
+  this.state={
+    city:null
+  }
+  this.updateInfo=this.updateInfo.bind(this)
+}
+  updateInfo(event){
+    this.setState({
+      city:event
+    })
+    }
+  
+  
   render(){
     return (
       <div className="App">
-       <Router>
-<Switch>
-      <Route exact path="/" component={Homepage} />
-      <Route path="/location" component={Location} />
-</Switch>
-</Router>
+         <Router>
+    <Switch>
+          <Route exact path="/" render={props=>(
+            <Homepage {...props} newState={this.updateInfo}/>
+          )} />
+          <Route path="/location"  render={props=>(
+          <Location {...props} city={this.state.city}/>
+          )} />
+    </Switch>
+    </Router>
+       
       </div>
     );
   }
 }
 
 export default App;
-// 
+ 
 

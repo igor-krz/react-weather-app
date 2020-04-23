@@ -14,8 +14,8 @@ class Picture extends Component {
     componentDidMount() {
         const apiKey="&client_id=Us6DQ10wkNT9Qqk30h4a47JsCZYy8OYyFYkzh-yKF5Y";
         const apiUrl="https://api.unsplash.com/search/photos/?page=1&per_page=1&query=";
-        const query="Vancouver";
-        const url=apiUrl+this.state.city+apiKey;
+        const query=this.props.city;
+        const url=apiUrl+query+apiKey;
         fetch(url)
         .then(res => res.json())
         .then((result) => {
@@ -30,7 +30,7 @@ class Picture extends Component {
     if(this.state.isLoaded===true){
         return(
         //<h1>The link to the image equals: {this.state.data.results[0].urls.raw}</h1>
-        <img src={this.state.data.results[0].urls.raw} alt="London"></img>
+        <img src={this.state.data.results[0].urls.raw} alt={this.props.city}></img>
         )
         }
         else{

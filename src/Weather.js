@@ -15,7 +15,7 @@ class Weather extends Component {
     componentDidMount() {
         const apiKey="&APPID=b6b533e6b1e1ecdb3928742316f0f73e";
         const apiUrl="http://api.openweathermap.org/data/2.5/weather?q=";
-        const query="Vancouver";
+        const query=this.props.city;
         const url=apiUrl+query+apiKey;
         fetch(url)
         .then(res => res.json())
@@ -35,7 +35,7 @@ class Weather extends Component {
 
         if(this.state.isLoaded===true){
             return(
-            <h1>The weather in ...: {this.state.data.weather[0].description}<br />
+            <h1>The weather in {this.props.city}: {this.state.data.weather[0].description}<br />
             The temperature equals: {this.state.data.main.temp} Kelvins</h1>
             )
         }

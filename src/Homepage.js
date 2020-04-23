@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import Location from "./Location.js"
 
 
 class Homepage extends Component {
@@ -29,11 +30,13 @@ class Homepage extends Component {
                 
                 <label>
                     City:
-                    <input type="text" onChange={this.updateInput}/>
+                    <input type="text" onChange={(e)=>this.props.newState(e.target.value)}/>
                 </label>
                 <Link to="/location">
                 <input type="submit" onClick={this.handleSubmit} />
+                
                 </Link>
+               
                 
                 
             </div>
@@ -42,4 +45,3 @@ class Homepage extends Component {
 }
 
 export default Homepage
-//<Link to ='/about' ><Button>About me</Button></Link>

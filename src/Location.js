@@ -8,8 +8,9 @@ export class Location extends Component {
     render() {
         return (
             <div>
-               <Weather />
-               <Picture /> <br />
+               <Weather city={this.props.city}/>
+               <h1>{this.props.city}</h1>
+               <Picture city={this.props.city}/> <br />
                <Link to="/">
                <input type="submit" value="GO BACK"/>
                 </Link>
