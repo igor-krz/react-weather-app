@@ -36,6 +36,7 @@ class Homepage extends Component {
                     <input type="text" onChange={(e)=>this.props.newState(e.target.value)}/>
                 </label>
                 <Link to="/location">
+                {/* This should be wrapped in a form */}
                 <input type="submit" onClick={this.handleSubmit} />
                 
                 </Link>
