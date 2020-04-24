@@ -10,10 +10,13 @@ class Homepage extends Component {
        this.state={
            city:''
        }
-    
+    // this is ES5 syntax, as are the functions below. 
+    // Try commenting it out and see if the app still works
     this.updateInput=this.updateInput.bind(this);
     this.handleSubmit=this.handleSubmit.bind(this);
     } 
+
+    // Put these functions into ES6 syntax along with the above 
     updateInput(event){
         this.setState({city:event.target.value})
         {console.log(this.state.city)}
